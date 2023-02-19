@@ -1,28 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" >
-        <title>测试</title> 
-        <title>Test</title> 
-    </head>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>melon's website</title>
+        <link rel="icon" herf="me.png">
+	</head>
+	<body>
+        <h1> 欢迎</h1> 
+        <p>如果你要联系我，可以发送邮件到</p><a herf="mailto:melon4445701@gmail.com">melon4445701@gmail.com<a>
 
-    <body>
-         <!-- creating my heading -->
-        <h1> 欢迎，欢迎啊，我的朋友！</h1> 
-        <h1> Well，welcome，my friend！</h1> 
+        <h1>Welcome</h1><p>If you wanna contact with me,you can send a email to </p><a herf="mailto:melon4445701@gmail.com">melon4445701@gmail.com</a>
 
-         <!-- making my paragraph-->
-        <p>这是我的头像，兄弟</p>
-        <p>this is my profile picture,bro</p>
+        <p>下面是我瞎搞的程序</p>
+        <p>The thing below is a messy program which made by me</p>
 
-         <!-- putting in an image --> 
-      <center><img src="me.png" width="200" height="200"></center>
+		<script src="js/three.js"></script>
+		<script>
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color('#fff');
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(700, 500 );
+            const camera = new THREE.PerspectiveCamera( 75, 700/500, 0.1, 1000 );
 
- <!-- making a new paragraph about me-->    
+        
+        document.body.appendChild( renderer.domElement );
+        const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+        const cube = new THREE.Mesh( geometry, material );
+        scene.add( cube );
 
- <p><strong>祝你好运&玩的开心,再会！</strong></p>
- <p><strong>Good luck&have fun,see ya!</strong></p>
+        camera.position.z = 5;
 
-    </body>               
-               
+        function animate() {
+	requestAnimationFrame( animate );
+	renderer.render( scene, camera );
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+            }
+        animate();
+		</script>
+        
+        <style scoped>
+            #three {
+              width: 100%;
+              height: 100%;
+              position: fixed;
+              left: 0;
+              top: 0;
+            }
+            </style>
+        <h1>有缘再会！</h1>
+        <h1>See you!</h1>
+	</body>
 </html>
